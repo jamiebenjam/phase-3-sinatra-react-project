@@ -21,6 +21,19 @@ post '/cities' do
     city.to_json
 end
 
+# patch
+patch '/cities/:id' do
+  city = City.find(params[:id])
+  city.update(params)
+  city.to_json
+end
+
+# delete
+delete '/cities/:id' do
+  city = City.find(params[:id])
+  city.destroy
+end
+
 # private
 
 # def city_params
