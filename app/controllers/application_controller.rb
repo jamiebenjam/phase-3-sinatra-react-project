@@ -11,6 +11,10 @@ get '/cities' do
   cities.to_json
 end
 
+get '/activities' do
+  Activity.all.to_json
+end
+
 get '/cities/:id' do
     city = City.find(params[:id])
     city.to_json
