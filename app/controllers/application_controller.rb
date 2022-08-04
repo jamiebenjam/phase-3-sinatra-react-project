@@ -25,6 +25,11 @@ post '/cities' do
     city.to_json
 end
 
+post '/activities' do
+  activity = Activity.create(params)
+  activity.to_json
+end
+
 # patch
 patch '/cities/:id' do
   city = City.find(params[:id])
@@ -32,10 +37,21 @@ patch '/cities/:id' do
   city.to_json
 end
 
+patch '/activities/:id' do
+  activity = Activity.find(params[:id])
+  activity.update(params)
+  activity.to_json
+end
+
 # delete
 delete '/cities/:id' do
   city = City.find(params[:id])
   city.destroy
+end
+
+delete '/activities/:id' do
+  activity = Activity.find(params[:id])
+  activity.destroy
 end
 
 # private
